@@ -1,3 +1,4 @@
+//request and response
 import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
 import { ConcertsAdminService } from './concerts_admin.service';
 import { CreateConcertsAdminDto } from './dto/create-concerts_admin.dto';
@@ -17,18 +18,18 @@ export class ConcertsAdminController {
     return this.concertsAdminService.findAll();
   }
 
-  @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.concertsAdminService.findOne(id);
-  }
+  // @Get(':id')
+  // findOne(@Param('id') id: string) {
+  //   return this.concertsAdminService.findOne(id);
+  // }
 
-  @Patch(':id')
-  update(@Param('id') id: string, @Body() updateConcertsAdminDto: UpdateConcertsAdminDto) {
-    return this.concertsAdminService.update(id, updateConcertsAdminDto);
-  }
+  // @Patch(':id')
+  // update(@Param('id') id: string, @Body() updateConcertsAdminDto: UpdateConcertsAdminDto) {
+  //   return this.concertsAdminService.update(id, updateConcertsAdminDto);
+  // }
 
-  @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.concertsAdminService.remove(id);
+  @Delete(':name')
+  remove(@Param('name') name: string) {
+    return this.concertsAdminService.remove(name);
   }
 }

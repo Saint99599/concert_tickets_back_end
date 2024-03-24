@@ -1,3 +1,4 @@
+//ประกาศ Schema
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose'
 import { Document } from 'mongoose'
 
@@ -5,7 +6,7 @@ export type ConcertsAdminDocument = ConcertsAdmin & Document
 
 @Schema()
 export  class ConcertsAdmin {
-    @Prop({required: true})
+    @Prop({required: true, unique: true })
     name: string
     
     @Prop({required: true})

@@ -1,15 +1,15 @@
 import { IsString, IsNumber, IsOptional } from "class-validator"
 
 export class UpdateConcertsAdminDto {
-    @IsString()
-    @IsOptional()
-    readonly name?: string
+    // @IsString()
+    // @IsOptional()
+    // readonly name?: string
 
-    @IsNumber()
-    @IsOptional()
-    readonly seat?: number
+    // @IsNumber()
+    // @IsOptional()
+    // readonly seat?: number
 
-    @IsString()
-    @IsOptional()
-    readonly description?: string
+    // @IsString()
+    // @IsOptional()
+    // readonly description?: string
 }

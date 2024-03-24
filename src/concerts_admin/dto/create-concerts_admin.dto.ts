@@ -1,4 +1,5 @@
-import { IsString, IsNumber, IsOptional } from "class-validator"
+//ประกาศรูปแบบที่จะรับเข้ามา
+import { IsString, IsNumber } from "class-validator"
 
 export class CreateConcertsAdminDto {
     @IsString()

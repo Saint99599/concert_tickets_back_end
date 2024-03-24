@@ -15,6 +15,7 @@ import {ConcertsAdmin, ConcertsAdminSchema} from './schemas/concerts_admin.schem
   ],
   controllers: [ConcertsAdminController],
   providers: [ConcertsAdminService],
+  // exports: [ConcertsAdminService]
 })
 
 export class ConcertsAdminModule {}
