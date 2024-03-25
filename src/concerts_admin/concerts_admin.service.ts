@@ -5,7 +5,6 @@ import { InjectModel } from '@nestjs/mongoose';
 import { CreateConcertsAdminDto } from './dto/create-concerts_admin.dto';
 import { UpdateConcertsAdminDto } from './dto/update-concerts_admin.dto';
 import {ConcertsAdmin, ConcertsAdminDocument} from './schemas/concerts_admin.schema'
-import { error } from 'console';
 
 @Injectable()
 export class ConcertsAdminService {
