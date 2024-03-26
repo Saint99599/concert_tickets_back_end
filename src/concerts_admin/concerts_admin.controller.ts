@@ -1,8 +1,9 @@
 //request and response
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch, Param, Delete, UseGuards } from '@nestjs/common';
 import { ConcertsAdminService } from './concerts_admin.service';
 import { CreateConcertsAdminDto } from './dto/create-concerts_admin.dto';
 import { UpdateConcertsAdminDto } from './dto/update-concerts_admin.dto';
+import { AuthGuard } from '@nestjs/passport';
 
 @Controller('concerts_admin')
 export class ConcertsAdminController {
@@ -13,6 +14,7 @@ export class ConcertsAdminController {
     return this.concertsAdminService.create(createConcertsAdminDto);
   }
 
+  @UseGuards(AuthGuard())
   @Get()
   findAll() {
     return this.concertsAdminService.findAll();
