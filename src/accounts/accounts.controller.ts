@@ -6,19 +6,23 @@ import { LoginAccountDto } from './dto/login-account.dto';
 @Controller('accounts')
 export class AccountsController {
   constructor(private readonly accountsService: AccountsService) {}
-
-  @Post('/signup')
-  CreateAccount(@Body() createAccountDto: CreateAccountDto) {
-    return this.accountsService. CreateAccount(createAccountDto);
+  @Post('register')
+  async register(@Body() registerDTO: CreateAccountDto) {
+    return this.accountsService.create(registerDTO);
   }
 
-  @Post('/login')
-  LoginAccount(@Body() loginAccountDto: LoginAccountDto) {
-    return this.accountsService. LoginAccount(loginAccountDto);
-  }
+  // @Post('/signup')
+  // CreateAccount(@Body() createAccountDto: CreateAccountDto) {
+  //   return this.accountsService. CreateAccount(createAccountDto);
+  // }
 
-  @Get()
-  findAllAccount() {
-    return this.accountsService.findAllAccount();
-  }
+  // @Post('/login')
+  // LoginAccount(@Body() loginAccountDto: LoginAccountDto) {
+  //   return this.accountsService. LoginAccount(loginAccountDto);
+  // }
+
+  // @Get()
+  // findAllAccount() {
+  //   return this.accountsService.findAllAccount();
+  // }
 }

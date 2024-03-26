@@ -14,7 +14,7 @@ import { Accounts, AccountsSchema } from './schemas/accounts.schema';
     ])
   ],
   controllers: [AccountsController],
-  providers: [AccountsService],
+  providers: [AccountsService, MongooseModule],
 })
 
 export class AccountsModule {}

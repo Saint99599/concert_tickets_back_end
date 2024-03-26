@@ -7,4 +7,7 @@ export class CreateAccountDto {
     
     @IsString()
     readonly password: string
+
+    @IsString()
+    readonly role: string
 }

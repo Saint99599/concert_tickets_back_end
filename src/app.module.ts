@@ -8,10 +8,11 @@ import { ConcertsAdminModule } from './concerts_admin/concerts_admin.module';
 // import { AccountService } from './account/account.service';
 // import { AccountModule } from './account/account.module';
 import { AccountsModule } from './accounts/accounts.module';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   // imports: [ConcertsAdminModule],
-  imports: [MongooseModule.forRoot('mongodb://root:example@localhost:27017/dataConcerts?authSource=admin'), ConcertsAdminModule, AccountsModule],
+  imports: [MongooseModule.forRoot('mongodb://root:example@localhost:27017/dataConcerts?authSource=admin'), ConcertsAdminModule, AccountsModule, AuthModule],
   controllers: [AppController],
   providers: [AppService,]
 })
