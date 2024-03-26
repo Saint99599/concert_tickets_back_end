@@ -4,17 +4,22 @@ import { ConcertsAdminService } from './concerts_admin.service';
 import { CreateConcertsAdminDto } from './dto/create-concerts_admin.dto';
 import { UpdateConcertsAdminDto } from './dto/update-concerts_admin.dto';
 import { AuthGuard } from '@nestjs/passport';
+import { AdminGuard } from 'src/accounts/strategies/admin.guard';
+import { Roles } from 'src/accounts/strategies/roles.decorator';
 
 @Controller('concerts_admin')
 export class ConcertsAdminController {
   constructor(private readonly concertsAdminService: ConcertsAdminService) {}
 
+  @UseGuards(AuthGuard(), AdminGuard)
+  @Roles('admin')
   @Post()
   create(@Body() createConcertsAdminDto: CreateConcertsAdminDto) {
     return this.concertsAdminService.create(createConcertsAdminDto);
   }
 
-  @UseGuards(AuthGuard())
+  @UseGuards(AuthGuard(), AdminGuard)
+  @Roles('admin')
   @Get()
   findAll() {
     return this.concertsAdminService.findAll();
@@ -30,6 +35,8 @@ export class ConcertsAdminController {
   //   return this.concertsAdminService.update(id, updateConcertsAdminDto);
   // }
 
+  @UseGuards(AuthGuard(), AdminGuard)
+  @Roles('admin')
   @Delete(':name')
   remove(@Param('name') name: string) {
     return this.concertsAdminService.remove(name);
