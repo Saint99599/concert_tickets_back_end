@@ -12,22 +12,22 @@ export class AccountsController {
     return this.accountsService.create(registerDTO);
   }
 
-  @UseGuards(JwtAuthGuard)
-  @Get('/profice')
-  async getProfice(@Request() req) {
-    // this.accountsService.findByUsername(username);
-    return req
-  }
+  // @UseGuards(JwtAuthGuard)
+  // @Get('/profice')
+  // async getProfice(@Request() req) {
+  //   // this.accountsService.findByUsername(username);
+  //   return req
+  // }
 
   // @Post('/signup')
   // CreateAccount(@Body() createAccountDto: CreateAccountDto) {
   //   return this.accountsService. CreateAccount(createAccountDto);
   // }
 
-  // @Post('/login')
-  // LoginAccount(@Body() loginAccountDto: LoginAccountDto) {
-  //   return this.accountsService. LoginAccount(loginAccountDto);
-  // }
+  @Post('/login')
+  LoginAccount(@Body() loginAccountDto: LoginAccountDto) {
+    return this.accountsService.LoginAccount(loginAccountDto);
+  }
 
   // @Get()
   // findAllAccount() {
