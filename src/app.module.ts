@@ -7,6 +7,7 @@ import { AccountsModule } from './accounts/accounts.module';
 import { AuthModule } from './auth/auth.module';
 import { ConfigModule } from '@nestjs/config';
 import { ConcertsUserModule } from './concerts_user/concerts_user.module';
+import { ConcertsOverviewModule } from './concerts_overview/concerts_overview.module';
 
 @Module({
   imports: [
@@ -17,7 +18,9 @@ import { ConcertsUserModule } from './concerts_user/concerts_user.module';
     MongooseModule.forRoot('mongodb://root:example@localhost:27017/dataConcerts?authSource=admin'), 
     ConcertsAdminModule, 
     AccountsModule, 
-    AuthModule, ConcertsUserModule
+    AuthModule, 
+    ConcertsUserModule, 
+    ConcertsOverviewModule
   ],
   controllers: [AppController],
   providers: [AppService,]
