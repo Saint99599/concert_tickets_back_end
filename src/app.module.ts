@@ -8,6 +8,7 @@ import { AuthModule } from './auth/auth.module';
 import { ConfigModule } from '@nestjs/config';
 import { ConcertsUserModule } from './concerts_user/concerts_user.module';
 import { ConcertsOverviewModule } from './concerts_overview/concerts_overview.module';
+import { LogConcertsModule } from './log_concerts/log_concerts.module';
 
 @Module({
   imports: [
@@ -20,7 +21,7 @@ import { ConcertsOverviewModule } from './concerts_overview/concerts_overview.mo
     AccountsModule, 
     AuthModule, 
     ConcertsUserModule, 
-    ConcertsOverviewModule
+    ConcertsOverviewModule, LogConcertsModule
   ],
   controllers: [AppController],
   providers: [AppService,]

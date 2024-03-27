@@ -38,7 +38,43 @@ export class ConcertsOverviewService {
   async updateReserve(): Promise<ConcertsOverviewDocument> {
     try {
       const result = this.concertsOverviewModel.findOneAndUpdate({}, 
+        { $inc: { reserve: 1 } }, 
+        { new: true, upsert: true  }
+      );
+      return result
+    } catch (error) {
+      throw error
+    }
+  }
+
+  async deleteReserve(): Promise<ConcertsOverviewDocument> {
+    try {
+      const result = this.concertsOverviewModel.findOneAndUpdate({}, 
         { $inc: { reserve: -1 } }, 
+        { new: true, upsert: true  }
+      );
+      return result
+    } catch (error) {
+      throw error
+    }
+  }
+
+  async updateCancel(): Promise<ConcertsOverviewDocument> {
+    try {
+      const result = this.concertsOverviewModel.findOneAndUpdate({}, 
+        { $inc: { cancel: 1 } }, 
+        { new: true, upsert: true  }
+      );
+      return result
+    } catch (error) {
+      throw error
+    }
+  }
+
+  async deleteCancel(): Promise<ConcertsOverviewDocument> {
+    try {
+      const result = this.concertsOverviewModel.findOneAndUpdate({}, 
+        { $inc: { cancel: -1 } }, 
         { new: true, upsert: true  }
       );
       return result

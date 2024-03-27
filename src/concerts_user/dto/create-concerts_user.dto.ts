@@ -2,12 +2,12 @@ import { IsString, IsNumber } from "class-validator"
 
 export class CreateConcertsUserDto {
     @IsString()
-    readonly name: string
+    readonly username: string
 
-    @IsNumber()
-    readonly seat: number
+    @IsString()
+    readonly productname: string
     
     @IsString()
-    readonly description: string
+    readonly action: string
 }
 

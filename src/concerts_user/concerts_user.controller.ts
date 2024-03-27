@@ -3,27 +3,30 @@ import { ConcertsUserService } from './concerts_user.service';
 import { CreateConcertsUserDto } from './dto/create-concerts_user.dto';
 import { UpdateConcertsUserDto } from './dto/update-concerts_user.dto';
 
-@Controller('concerts-user')
+@Controller('concerts_user')
 export class ConcertsUserController {
   constructor(private readonly concertsUserService: ConcertsUserService) {}
+  
+  @Post('/reservet')
+  async addProductToUser(@Body() createConcertsUserDto: CreateConcertsUserDto) {
+    const res = createConcertsUserDto;
+    console.log("res",res)
+    return this.concertsUserService.addProductToUser(res.username, res.productname, res.action);
+  }
 
-  // @Post()
-  // create(@Body() createConcertsUserDto: CreateConcertsUserDto) {
-  //   return this.concertsUserService.create(createConcertsUserDto);
-  // }
+  @Delete('/cancel')
+  async deleteProductFromUser(@Body() createConcertsUserDto: CreateConcertsUserDto) {
+    const res = createConcertsUserDto;
+    return this.concertsUserService.deleteProductFromUser(res.username, res.productname);
+  }
 
-  // @Get(':id')
-  // findOne(@Param('id') id: string) {
-  //   return this.concertsUserService.findOne(+id);
-  // }
+  @Get()
+  async findAll() {
+    return this.concertsUserService.findAll();
+  }
 
-  // @Patch(':id')
-  // update(@Param('id') id: string, @Body() updateConcertsUserDto: UpdateConcertsUserDto) {
-  //   return this.concertsUserService.update(+id, updateConcertsUserDto);
-  // }
-
-  // @Delete(':id')
-  // remove(@Param('id') id: string) {
-  //   return this.concertsUserService.remove(+id);
-  // }
+  @Get(':username')
+  async findOne(@Param('username') username: string) {
+    return this.concertsUserService.findOne(username);
+  }
 }
