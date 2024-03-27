@@ -20,6 +20,7 @@ export class LogConcertsService {
   async findAll(): Promise<LogConcert[]> {
     try {
       const result = await this.logModel.find().exec()
+
       return result
     } catch (error) {
       throw error

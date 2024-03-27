@@ -32,13 +32,13 @@ export class ConcertsUserService {
       );
       
       const ConcertsOverview = await this.ConcertsOverviewService.updateReserve()
-      console.log("ConcertsOverview",ConcertsOverview)
+
       if (!ConcertsOverview) {
         throw new NotFoundException ('error some thing ConcertsOverview')
       }
 
       await this.logService.createLog(username, productname, action);
-      console.log("concertsUser",concertsUser)
+
       return concertsUser;
     } catch (error) {
       throw error
@@ -60,7 +60,7 @@ export class ConcertsUserService {
       }
       
       await this.logService.createLog(username, productname, 'delete');
-      console.log("concertsUser",concertsUser)
+
       return concertsUser;
     } catch (error) {
       throw error
@@ -77,6 +77,7 @@ export class ConcertsUserService {
   }
 
   async findOne(username: string): Promise<ConcertsUser> {
+    console.log("username",username)
     return await this.concertsUserModel.findOne({ username }).exec();
   }
 }

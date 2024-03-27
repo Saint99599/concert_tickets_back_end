@@ -6,6 +6,8 @@ import { ConcertsUser, ConcertsUserSchema } from './schemas/concerts_user.schema
 
 import { LogConcertsModule } from 'src/log_concerts/log_concerts.module';
 import { ConcertsOverviewModule } from 'src/concerts_overview/concerts_overview.module';
+import { AccountsModule } from 'src/accounts/accounts.module';
+
 
 @Module({
   imports: [
@@ -16,7 +18,8 @@ import { ConcertsOverviewModule } from 'src/concerts_overview/concerts_overview.
       }
     ]),
     LogConcertsModule,
-    ConcertsOverviewModule
+    ConcertsOverviewModule,
+    AccountsModule
   ],
   controllers: [ConcertsUserController],
   providers: [ConcertsUserService],

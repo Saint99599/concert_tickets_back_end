@@ -18,12 +18,13 @@ export class ConcertsAdminService {
   async create(createConcertsAdminDto: CreateConcertsAdminDto): Promise<ConcertsAdmin> {
     try {
       const result = new this.ConcertsAdminModel(createConcertsAdminDto)
-      const ConcertsOverview = await this.ConcertsOverviewService.updateTotalSeats(createConcertsAdminDto.seat)
-      console.log("ConcertsOverview",ConcertsOverview)
-      if (!ConcertsOverview) {
-        throw new NotFoundException ('error some thing ConcertsOverview')
+      if (result){
+        const ConcertsOverview = await this.ConcertsOverviewService.updateTotalSeats(createConcertsAdminDto.seat)
+        if (!ConcertsOverview) {
+          throw new NotFoundException ('error some thing ConcertsOverview')
+        }
+        return result.save()
       }
-      return result.save()
     } catch (error) {
       throw error
     }
@@ -53,11 +54,13 @@ export class ConcertsAdminService {
   // }
 
   async remove(createConcertsAdminDto) {
+    
     try {
       const name = createConcertsAdminDto.name
       const result = await this.ConcertsAdminModel.findOneAndDelete({ name: name }).exec();
+
       const ConcertsOverview = await this.ConcertsOverviewService.deleteTotalSeats(createConcertsAdminDto.seat)
-      console.log("ConcertsOverview",ConcertsOverview)
+
       if (!ConcertsOverview) {
         throw new NotFoundException ('error some thing ConcertsOverview')
       }
