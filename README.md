@@ -26,6 +26,13 @@
 
 [Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
 
+## setup mongodb by docker
+1. สร้างไฟล์ docker-compose.yml
+2. set image เป็น mongo
+3. กำหนด username และ passwod ของ root mongo
+4. กำหนด ports เป็น 27017 (เป็นพท้นฐาน)
+5. run services docker โดยคำสั่ง docker-compose up -d
+
 ## Installation
 
 ```bash
