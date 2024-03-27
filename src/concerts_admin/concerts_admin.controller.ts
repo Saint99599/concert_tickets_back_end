@@ -18,8 +18,7 @@ export class ConcertsAdminController {
     return this.concertsAdminService.create(createConcertsAdminDto);
   }
 
-  @UseGuards(AuthGuard(), AdminGuard)
-  @Roles('admin')
+  @UseGuards(AuthGuard())
   @Get()
   findAll() {
     return this.concertsAdminService.findAll();
