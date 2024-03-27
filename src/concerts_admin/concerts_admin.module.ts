@@ -4,6 +4,7 @@ import { ConcertsAdminService } from './concerts_admin.service';
 import { ConcertsAdminController } from './concerts_admin.controller';
 import {ConcertsAdmin, ConcertsAdminSchema} from './schemas/concerts_admin.schema'
 import { AccountsModule } from 'src/accounts/accounts.module';
+import { ConcertsOverviewModule } from 'src/concerts_overview/concerts_overview.module';
 
 @Module({
   imports: [
@@ -13,7 +14,8 @@ import { AccountsModule } from 'src/accounts/accounts.module';
         schema: ConcertsAdminSchema
       }
     ]),
-    AccountsModule
+    AccountsModule,
+    ConcertsOverviewModule
   ],
   controllers: [ConcertsAdminController],
   providers: [ConcertsAdminService],

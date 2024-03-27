@@ -18,5 +18,6 @@ import { AccountsModule } from 'src/accounts/accounts.module';
   ],
   controllers: [ConcertsOverviewController],
   providers: [ConcertsOverviewService],
+  exports: [ConcertsOverviewService]
 })
 export class ConcertsOverviewModule {}

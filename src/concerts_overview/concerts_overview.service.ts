@@ -23,6 +23,18 @@ export class ConcertsOverviewService {
     }
   }
 
+  async deleteTotalSeats(seats: number): Promise<ConcertsOverviewDocument> {
+    try {
+      const result = await this.concertsOverviewModel.findOneAndUpdate({}, 
+        { $inc: { totalseats: -seats } }, 
+        { new: true, upsert: true }
+      );
+      return result
+    } catch (error) {
+      throw error
+    }
+  }
+
   async updateReserve(): Promise<ConcertsOverviewDocument> {
     try {
       const result = this.concertsOverviewModel.findOneAndUpdate({}, 

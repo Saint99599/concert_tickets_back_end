@@ -18,7 +18,7 @@ export class ConcertsAdminController {
     return this.concertsAdminService.create(createConcertsAdminDto);
   }
 
-  @UseGuards(AuthGuard())
+  @UseGuards(AuthGuard(), AdminGuard)
   @Get()
   findAll() {
     return this.concertsAdminService.findAll();
@@ -36,8 +36,8 @@ export class ConcertsAdminController {
 
   @UseGuards(AuthGuard(), AdminGuard)
   @Roles('admin')
-  @Delete(':name')
-  remove(@Param('name') name: string) {
-    return this.concertsAdminService.remove(name);
+  @Delete()
+  remove(@Body() createConcertsAdminDto: CreateConcertsAdminDto) {
+    return this.concertsAdminService.remove(createConcertsAdminDto);
   }
 }
